@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private Vector2 dir;
 
     [Header("Vida")]
-    int life = 3;
+    float life = 3;
 
     [Header("Disparo")]
     public GameObject Bullet;
@@ -72,11 +72,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerEnter2D(Collider2D collision)
+   private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            life--;
+            life-= collision.gameObject.GetComponent<Damage>().damage;
 
             if (life <= 0)
             {
@@ -84,13 +84,18 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(collision.gameObject.CompareTag("BulletEnemy"))
+        /* if(collision.gameObject.CompareTag("BulletEnemy"))
         {
             life--;
             if(life <= 0)
             {
                 Destroy(gameObject);
             }
+        }*/
+
+        if(collision.gameObject.CompareTag("lifeItems"))
+        {
+            life += collision.gameObject.GetComponent<lifeItem>().lifemax;
         }
-    }*/
+    }
 }
