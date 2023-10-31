@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
 
    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
+        /* if(collision.gameObject.CompareTag("Enemy"))
         {
             life-= collision.gameObject.GetComponent<Damage>().damage;
 
@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        /* if(collision.gameObject.CompareTag("BulletEnemy"))
+        if(collision.gameObject.CompareTag("BulletEnemy"))
         {
             life--;
             if(life <= 0)
@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
             }
         }*/
 
-        if(collision.gameObject.CompareTag("lifeItems"))
+        if(collision.gameObject.CompareTag("lifeItem"))
         {
             life += collision.gameObject.GetComponent<lifeItem>().lifemax;
             if (life >= 3)
