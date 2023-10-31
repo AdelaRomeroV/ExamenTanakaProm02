@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Bullet
   - Ulti
+  - items
+  - Enemy
+  - lifeItem
   layers:
   - Default
   - TransparentFX
