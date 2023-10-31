@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class lifeItem : MonoBehaviour
 {
-    public float life;
+    public float lifemax;
 }

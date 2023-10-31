@@ -96,6 +96,11 @@ public class Player : MonoBehaviour
         if(collision.gameObject.CompareTag("lifeItems"))
         {
             life += collision.gameObject.GetComponent<lifeItem>().lifemax;
+            if (life >= 3)
+            {
+                life = 3;
+            }
+
         }
     }
 }
