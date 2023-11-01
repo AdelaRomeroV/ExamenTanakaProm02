@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,16 +12,14 @@ public class Player : MonoBehaviour
     private Vector2 dir;
 
     [Header("Vida")]
-    float life = 3;
+    public float life =2;
 
     [Header("Disparo")]
     public GameObject Bullet;
     public GameObject Ulti;
-    public float speedB;
+    public float speedShooter;
     private float timeShooter;
-    private float shooterleytimer;
-
-
+    private float shooterleytimer = 0.5f;
 
     void Start()
     {
@@ -71,10 +70,12 @@ public class Player : MonoBehaviour
             obj.GetComponent<Bullet>().direction(dir);
         }
     }
+    
+        
 
-   private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        /* if(collision.gameObject.CompareTag("Enemy"))
+        if(collision.gameObject.CompareTag("Enemy"))
         {
             life-= collision.gameObject.GetComponent<Damage>().damage;
 
@@ -84,22 +85,23 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(collision.gameObject.CompareTag("BulletEnemy"))
+        if (collision.gameObject.CompareTag("BulletEnemy"))
         {
-            life--;
-            if(life <= 0)
+            life -= collision.gameObject.GetComponent<Damage>().damage;
+            Destroy(collision.gameObject);
+
+            if (life <= 0)
             {
                 Destroy(gameObject);
             }
-        }*/
+        }
 
-        if(collision.gameObject.CompareTag("lifeItem"))
+
+        if (collision.gameObject.CompareTag("Healing"))
         {
-            life += collision.gameObject.GetComponent<lifeItem>().lifemax;
-            if (life >= 3)
-            {
-                life = 3;
-            }
+            Destroy(collision.gameObject);
+            
+            life += collision.gameObject.GetComponent<lifeItem>().healing;
 
         }
     }

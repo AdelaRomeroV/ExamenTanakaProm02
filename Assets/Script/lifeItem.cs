@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class lifeItem : MonoBehaviour
 {
-    public float lifemax;
+    public float healing;
+
 }

@@ -8,7 +8,8 @@ TagManager:
   - Ulti
   - items
   - Enemy
-  - lifeItem
+  - Healing
+  - BulletEnemy
   layers:
   - Default
   - TransparentFX
